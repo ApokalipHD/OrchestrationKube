@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: backend # Assure-toi que ton Service backend a ce label
+      app: {{ include "diiage-finals-app.name" . }}-backend
   endpoints:
   - port: http # Le nom du port défini dans ton Service backend
     path: /metrics
