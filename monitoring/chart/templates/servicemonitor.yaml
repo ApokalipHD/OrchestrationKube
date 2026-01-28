@@ -1,13 +1,13 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: otel-collector-sm
+  name: backend-monitor
   labels:
-    release: prometheus # /!\ Très important : doit correspondre au label attendu par ton opérateur Prometheus
+    release: monitoring # Doit souvent matcher le label selector de ton Prometheus Operator
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: otel-collector # Label du service créé par l'opérateur OTel
+      app: backend # Assure-toi que ton Service backend a ce label
   endpoints:
-  - port: prometheus # Le nom du port défini dans l'exportateur du Collector
-    interval: 15s
+  - port: http # Le nom du port défini dans ton Service backend
+    path: /metrics
