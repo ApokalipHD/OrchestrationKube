@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: monitoring-collector-collector
+      app: monitoring-collector-collector-monitoring
   endpoints:
   - port: monitoring # Le nom du port défini dans ton Service backend
     path: /metrics
