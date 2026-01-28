@@ -1,13 +1,14 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: backend-monitor
+  name: colelctor-monitor
+  namespace: monitoring
   labels:
     release: monitoring # Doit souvent matcher le label selector de ton Prometheus Operator
 spec:
   selector:
     matchLabels:
-      app: backend-diiage-finals-app-backend # Assure-toi que ton Service backend a ce label
+      app: monitoring-collector-collector
   endpoints:
-  - port: http # Le nom du port défini dans ton Service backend
+  - port: monitoring # Le nom du port défini dans ton Service backend
     path: /metrics
