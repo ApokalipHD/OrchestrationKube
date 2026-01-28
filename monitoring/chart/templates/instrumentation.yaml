@@ -18,3 +18,5 @@ spec:
         value: "/root/backend"
       - name: OTEL_EXPORTER_OTLP_PROTOCOL
         value: "grpc"
+      - name: OTEL_METRICS_EXPORTER
+        value: "otlp"
