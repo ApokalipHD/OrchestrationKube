@@ -13,3 +13,6 @@ spec:
   go:
     # Utilise l'image définie dans tes values
     image: ghcr.io/open-telemetry/opentelemetry-go-instrumentation/autoinstrumentation-go:v0.23.0
+    env:
+      - name: OTEL_GO_AUTO_TARGET_EXE
+        value: "/app/main"
